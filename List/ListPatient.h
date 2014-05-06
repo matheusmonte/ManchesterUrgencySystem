@@ -1,9 +1,8 @@
-struct listPatient {
-    int urgencyPriority;
-    string manchesterColor;
-    patient patientData;
-    struct lista* prox;
-};
+#include <iostream>
+
+
+using namespace::std;
+
 
 struct patient{
      int id;
@@ -11,10 +10,19 @@ struct patient{
      string age;
 
 };
+
+struct listPatient {
+    int urgencyPriority;
+    string manchesterColor;
+    patient patientData;
+    struct listPatient* prox;
+};
+
+
 typedef struct listPatient Lista;
 
 Lista* inicializa (void);
-Lista* insere_inicio (Lista* l, int cod, int nota);
+
 void imprime (Lista* l);
 int vazia (Lista* l);
 Lista* busca (Lista* l, int cod);

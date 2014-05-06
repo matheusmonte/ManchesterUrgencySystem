@@ -1,6 +1,8 @@
-#include <stdio.h>
-#include "ListaEncadeadaSimples.h"
+#include <iostream>
+#include <string>
+#include "ListPatient.h"
 
+using namespace std;
 /* função de inicialização: retorna uma lista vazia */
 Lista* inicializa (void){
     return NULL;
@@ -10,8 +12,9 @@ Lista* inicializa (void){
 Lista* insere_inicio (Lista* l, patient patientData, string UrgencyColor, int priority){
     Lista* novoNO = (Lista*) malloc(sizeof(Lista));
     novoNO->urgencyPriority = priority;
-    novoNO->nota = nota;
-    novoNO->prox = l;
+	novoNO->manchesterColor = UrgencyColor;
+	novoNO->patientData = patientData;
+	novoNO->prox = NULL;
     return novoNO;
 }
 
@@ -74,21 +77,16 @@ void libera (Lista* l){
     }
 }
 
-/* função auxiliar: cria e inicializa um nó */
-Lista* cria (int cod, int nota){
-    Lista* p = (Lista*) malloc(sizeof(Lista));
-    p->codAluno = cod;
-    p->nota = nota;
-    return p;
-}
+
+
 
 /* função insere_ordenado: insere elemento em ordem */
-Lista* insere_ordenado (Lista* l, int cod, int nota){
-    Lista* novoNo = cria(cod, nota); /* cria novo nó */
+Lista* insere_ordenado (Lista* l, Lista* _novoNo){
+	Lista* novoNo = _novoNo ;/* cria novo nó */
     Lista* ant = NULL; /* ponteiro para elemento anterior */
     Lista* p = l; /* ponteiro para percorrer a lista*/
     /* procura posição de inserção */
-    while (p != NULL && p->codAluno < cod) {
+	while (p != NULL && p->urgencyPriority < novoNo->urgencyPriority) {
         ant = p;
         p = p->prox;
     }
