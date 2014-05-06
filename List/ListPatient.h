@@ -1,4 +1,4 @@
-struct lista {
+struct listPatient {
     int urgencyPriority;
     string manchesterColor;
     patient patientData;
@@ -11,7 +11,7 @@ struct patient{
      string age;
 
 };
-typedef struct lista Lista;
+typedef struct listPatient Lista;
 
 Lista* inicializa (void);
 Lista* insere_inicio (Lista* l, int cod, int nota);

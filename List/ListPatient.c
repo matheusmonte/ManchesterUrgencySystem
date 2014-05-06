@@ -7,9 +7,9 @@ Lista* inicializa (void){
 }
 
 /* inserção no início: retorna a lista atualizada */
-Lista* insere_inicio (Lista* l, int cod, int nota){
+Lista* insere_inicio (Lista* l, patient patientData, string UrgencyColor, int priority){
     Lista* novoNO = (Lista*) malloc(sizeof(Lista));
-    novoNO->codAluno = cod;
+    novoNO->urgencyPriority = priority;
     novoNO->nota = nota;
     novoNO->prox = l;
     return novoNO;
@@ -20,10 +20,7 @@ Lista* insere_inicio (Lista* l, int cod, int nota){
 void imprime (Lista* l){
     Lista* p; /* variável auxiliar para percorrer a lista */
     for (p = l; p != NULL; p = p->prox){
-        printf("Aluno = %d\n", p->codAluno);
-        printf("Nota = %d\n", p->nota);
-        printf("endMemoria %d\n",p->prox );
-        printf("-----------Fim----------\n");
+       
     }
 }
 
@@ -33,10 +30,10 @@ int vazia (Lista* l){
 }
 
 /* função busca: busca um elemento na lista */
-Lista* busca (Lista* l, int cod){
+Lista* busca (Lista* l, int priority){
     Lista* p;
     for (p=l; p!=NULL; p=p->prox)
-    if (p->codAluno == cod){
+    if (p->urgencyPriority == priority){
         //printf("Nota = %d\n", p->nota);
         return p;
     }
@@ -44,11 +41,11 @@ Lista* busca (Lista* l, int cod){
 }
 
 /* função retira: retira elemento da lista */
-Lista* retira (Lista* l, int cod) {
+Lista* retira (Lista* l, int priority) {
     Lista* ant = NULL; /* ponteiro para elemento anterior */
     Lista* p = l; /* ponteiro para percorrer a lista*/
     /* procura elemento na lista, guardando anterior */
-    while (p != NULL && p->codAluno != cod) {
+    while (p != NULL && p->urgencyPriority != priority) {
         ant = p;
         p = p->prox;
     }
