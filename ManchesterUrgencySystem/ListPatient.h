@@ -28,5 +28,5 @@ int vazia (Lista* l);
 Lista* busca (Lista* l, int cod);
 Lista* retira (Lista* l, int cod);
 void libera (Lista* l);
-Lista* insere_ordenado (Lista* l, int cod, int nota);
+Lista* insere_ordenado (Lista* l, Lista* _novoNo);
 

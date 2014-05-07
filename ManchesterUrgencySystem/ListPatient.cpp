@@ -97,15 +97,7 @@ Lista* insere_ordenado (Lista* l, Lista* _novoNo){
     return l;
 }
 
-enum URGENCY_PRIORITY{
-	RED = 10,
-	ORANGE = 9,
-	YELLOW = 8,
-	GREEN = 7,
-	BLUE = 5,
-	WHITE = 0
 
-};
 
 
 /*int main(void){
