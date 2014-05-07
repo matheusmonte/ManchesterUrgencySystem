@@ -7,13 +7,13 @@ using namespace::std;
 struct patient{
      int id;
      string name;
-     string age;
+     int age;
 
 };
 
 struct listPatient {
     int urgencyPriority;
-    string manchesterColor;
+    int manchesterColor;
     patient patientData;
     struct listPatient* prox;
 };

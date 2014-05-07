@@ -1,4 +1,5 @@
 #include <iostream>
+#include <stdio.h>
 #include <string>
 #include "ListPatient.h"
 
@@ -9,7 +10,7 @@ Lista* inicializa (void){
 }
 
 /* inserção no início: retorna a lista atualizada */
-Lista* insere_inicio (Lista* l, patient patientData, string UrgencyColor, int priority){
+Lista* insere_inicio (Lista* l, patient patientData, int UrgencyColor, int priority){
     Lista* novoNO = (Lista*) malloc(sizeof(Lista));
     novoNO->urgencyPriority = priority;
 	novoNO->manchesterColor = UrgencyColor;
@@ -23,7 +24,8 @@ Lista* insere_inicio (Lista* l, patient patientData, string UrgencyColor, int pr
 void imprime (Lista* l){
     Lista* p; /* variável auxiliar para percorrer a lista */
     for (p = l; p != NULL; p = p->prox){
-       
+		cout<<"--------"<<endl;
+		cout<<p->manchesterColor<<" "<<p->patientData.name <<endl;
     }
 }
 
@@ -100,3 +102,63 @@ Lista* insere_ordenado (Lista* l, Lista* _novoNo){
     }
     return l;
 }
+
+enum URGENCY_PRIORITY{
+	RED = 10,
+	ORANGE = 9,
+	YELLOW = 8,
+	GREEN = 7,
+	BLUE = 5,
+	WHITE = 0
+
+};
+
+
+/*int main(void){
+    Lista* l;
+    l = inicializa();
+
+	
+	patient pc ;
+	pc.age = 13;
+	pc.id = 0;
+	pc.name = "Teste RED";
+
+	Lista* novoP;
+	novoP->manchesterColor = novoP->urgencyPriority =RED;
+
+	//simular dor:
+	novoP->urgencyPriority += 10;
+
+	//simular sangramento
+	novoP->urgencyPriority += 20;
+
+	//simular anomalia coronaria
+
+	novoP->urgencyPriority +=50;
+	novoP->patientData = pc;
+
+
+	novoP->urgencyPriority += pc.age;
+	insere_ordenado(l, novoP);
+
+	//outro paciente
+    pc.age = 70;
+	pc.id = 0;
+	pc.name = "Teste RED 2";
+
+
+	//simular sangramento
+	novoP->urgencyPriority += 20;
+
+	//simular anomalia coronaria
+
+	novoP->urgencyPriority +=50;
+	novoP->patientData = pc;
+
+
+	novoP->urgencyPriority += pc.age;
+		insere_ordenado(l, novoP);
+		imprime(l);
+		cin>>novoP->urgencyPriority;
+}*/
