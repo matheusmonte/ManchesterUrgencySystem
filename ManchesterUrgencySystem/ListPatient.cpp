@@ -1,5 +1,6 @@
 #include <iostream>
 #include <stdio.h>
+#include <stdlib.h>
 #include <string>
 #include "ListPatient.h"
 
@@ -9,15 +10,8 @@ Lista* inicializa (void){
     return NULL;
 }
 
-/* inserção no início: retorna a lista atualizada */
-Lista* insere_inicio (Lista* l, patient patientData, int UrgencyColor, int priority){
-    Lista* novoNO = (Lista*) malloc(sizeof(Lista));
-    novoNO->urgencyPriority = priority;
-	novoNO->manchesterColor = UrgencyColor;
-	novoNO->patientData = patientData;
-	novoNO->prox = NULL;
-    return novoNO;
-}
+
+
 
 
 /* função imprime: imprime valores dos elementos */
@@ -65,7 +59,7 @@ Lista* retira (Lista* l, int priority) {
         /* retira elemento do meio da lista */
         ant->prox = p->prox;
     }
-    free(p);
+    free (p);
     return l;
 }
 
@@ -74,7 +68,7 @@ void libera (Lista* l){
     while (p != NULL) {
         Lista* t = p->prox; /* guarda referência para o próximo elemento
         */
-        free(p); /* libera a memória apontada por p */
+        free (p); /* libera a memória apontada por p */
         p = t; /* faz p apontar para o próximo */
     }
 }
